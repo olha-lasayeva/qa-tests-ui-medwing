@@ -1,14 +1,11 @@
 import requests
 import datetime
 import os
-from tests_ui.conftest import current_date_time
-
+from conftest import current_date_time
 
 # Documentation: https://developers.google.com/speed/docs/insights/v5/get-started
 # JSON paths: https://developers.google.com/speed/docs/insights/v4/reference/pagespeedapi/runpagespeed
 # Populate 'pagespeed.txt' file with URLs to query against API.
-
-
 
 def test_getpagespeedscore(targeturl, ntimes, device, apikey, outputfile, daterun):
     writeheaders = not (os.path.isfile(outputfile))
@@ -56,16 +53,16 @@ def test_getpagespeedscore(targeturl, ntimes, device, apikey, outputfile, dateru
 targeturls = [
 
     # Homepage
-    'https://medwing.com/DE/de/',
+    'https://medwing.com/DE/de/'
 ]
 
-ntimes = 5
+ntimes = 1
 # TODO: Update 'desktop'/'mobile'
 device = 'mobile'
 apikey = 'AIzaSyDUiGQpOw4_ehvcu0xOR-9sRjAKd-9gajA'
 # TODO: Update the file name for every new test
 outputfile = 'resultsProd_' + current_date_time + '.csv'
 
-daterun = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%SZ")
+daterun = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%SZ")
 for targeturl in targeturls:
     test_getpagespeedscore(targeturl, ntimes, device, apikey, outputfile, daterun)
