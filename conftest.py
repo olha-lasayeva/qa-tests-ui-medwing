@@ -3,7 +3,7 @@ import pytest
 #from configuration.config import medwing_web_config as cfg
 
 headless_bool = True
-slowmo_value = 0
+slowmo_value = 300
 
 current_date_time = datetime.now().strftime('%Y%m%d-%H%M%S')
 

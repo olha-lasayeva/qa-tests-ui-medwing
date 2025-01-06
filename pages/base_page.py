@@ -1,8 +1,7 @@
 import time
-from os import name
 from playwright.sync_api import expect
-from tests_ui.conftest import set_up
-from tests_ui.conftest import current_date_time
+from conftest import set_up
+
 
 class BasePage:
 
@@ -48,9 +47,10 @@ class BasePage:
     def click_register(self, set_up):
         page = set_up
         self.register_button.nth(-1).click()
+        #NOTE: currently on qa env the same heyflow variant for a and b
         if (page.url == "https://medwing.com/de/de/a/job-finder/job_kind" or
                 page.url == "https://medwing.com/de/de/b/job-finder/job_kind"):
-            page.goto("https://mdwng.dev/de/de/a/job-finder/job_kind")
+            page.goto("https://mdwng.dev/de/de/b/job-finder/job_kind")
             self.accept_cookie_banner()
 
     def click_job_finder_link(self, n):

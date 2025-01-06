@@ -1,17 +1,17 @@
 import time
 from playwright.sync_api import expect
-from tests_ui.conftest import current_date_time
+from conftest import current_date_time
 
 
 class HeyFlow:
 
     def __init__(self, page):
 
-        self.heyflow_id = page.locator("#hey__iframe-soft_registration_v7_7_qa")
+        self.heyflow_id_v7_7 = page.locator("#hey__iframe-soft_registration_v7_7_qa")
 
-    def heyflow_create_candidate(self, set_up):
+    def heyflow_create_candidate_v7_7(self, set_up):
         page = set_up
-        frame = self.heyflow_id
+        frame = self.heyflow_id_v7_7
         frame.content_frame.get_by_text("Krankenhaus").nth(1).click()
         # page.wait_for_load_state()
         frame.content_frame.get_by_text("Exam. Altenpfleger/in").first.click()
@@ -44,4 +44,3 @@ class HeyFlow:
         frame.content_frame.get_by_role("button", name="Weiter").click()
         frame.content_frame.get_by_placeholder("3456789").fill("1771450000")
         frame.content_frame.get_by_role("button", name="Weiter").click()
-

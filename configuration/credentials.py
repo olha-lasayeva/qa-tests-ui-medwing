@@ -1,4 +1,4 @@
-from tests_ui.conftest import current_date_time
+from conftest import current_date_time
 
 basic_auth = {
     "username": "medwingdev",
