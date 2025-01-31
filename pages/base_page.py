@@ -1,6 +1,8 @@
 import time
+import pytest
 from playwright.sync_api import expect
 from conftest import set_up
+from pages.logged_in_area import LoggedInArea
 
 
 class BasePage:
@@ -117,3 +119,15 @@ class BasePage:
         self.date_picker_submit.click()
         self.form_submit.click()
         #self.form_submit.click()
+
+    def login_existing_user(self, set_up):
+        #page = set_up
+        self.accept_cookie_banner()
+        logged_in_area = LoggedInArea(set_up)
+        self.goto_url(set_up, "https://my.mdwng.dev/auth/login")
+        self.accept_cookie_banner()
+        # TODO: use fixtures to get the credentials
+        logged_in_area.enter_email("testautomations+2024test@medwing.com")
+        logged_in_area.enter_password("Med1205+")
+        logged_in_area.click_form_button_submit()
+        logged_in_area.verify_h1_text(0, "Welcome")

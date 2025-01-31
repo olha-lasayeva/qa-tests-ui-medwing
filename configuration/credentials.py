@@ -10,5 +10,10 @@ test_candidate = {
     "password": "Med123456+"
 }
 
+logged_in_area_credentials = {
+    "email": "testautomations+2024test@medwing.com",
+    "password": "Med1205+"
+}
+
 
 
